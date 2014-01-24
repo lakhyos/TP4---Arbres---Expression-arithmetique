@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B9F63F72185899DA0084782C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B9F63F71185899DA0084782C /* main.c */; };
+		B9C684B0187F372B002AF0D1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B9C684AF187F372B002AF0D1 /* main.c */; };
 		B9F63F74185899DA0084782C /* TP4___Arbres___Expression_arithmetique.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B9F63F73185899DA0084782C /* TP4___Arbres___Expression_arithmetique.1 */; };
+		B9F63F8118589A070084782C /* arbre.c in Sources */ = {isa = PBXBuildFile; fileRef = B9F63F7A18589A070084782C /* arbre.c */; };
+		B9F63F8218589A070084782C /* expression.c in Sources */ = {isa = PBXBuildFile; fileRef = B9F63F7C18589A070084782C /* expression.c */; };
+		B9F63F8318589A070084782C /* Fonctions arbres.hold in Sources */ = {isa = PBXBuildFile; fileRef = B9F63F7E18589A070084782C /* Fonctions arbres.hold */; };
+		B9F63F8418589A070084782C /* main_expression.cold in Sources */ = {isa = PBXBuildFile; fileRef = B9F63F7F18589A070084782C /* main_expression.cold */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +29,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B91A453418904BA00099F11A /* fonctions arbre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fonctions arbre.h"; sourceTree = "<group>"; };
+		B9C684AF187F372B002AF0D1 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		B9F63F6E185899DA0084782C /* TP4 - Arbres & Expression arithmetique */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "TP4 - Arbres & Expression arithmetique"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9F63F71185899DA0084782C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		B9F63F73185899DA0084782C /* TP4___Arbres___Expression_arithmetique.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "TP4___Arbres___Expression_arithmetique.1"; sourceTree = "<group>"; };
+		B9F63F7A18589A070084782C /* arbre.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = arbre.c; sourceTree = "<group>"; };
+		B9F63F7B18589A070084782C /* arbre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arbre.h; sourceTree = "<group>"; };
+		B9F63F7C18589A070084782C /* expression.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = expression.c; sourceTree = "<group>"; };
+		B9F63F7D18589A070084782C /* expression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = expression.h; sourceTree = "<group>"; };
+		B9F63F7E18589A070084782C /* Fonctions arbres.hold */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Fonctions arbres.hold"; sourceTree = "<group>"; };
+		B9F63F7F18589A070084782C /* main_expression.cold */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main_expression.cold; sourceTree = "<group>"; };
+		B9F63F8018589A070084782C /* Rapport.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Rapport.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +72,16 @@
 		B9F63F70185899DA0084782C /* TP4 - Arbres & Expression arithmetique */ = {
 			isa = PBXGroup;
 			children = (
-				B9F63F71185899DA0084782C /* main.c */,
 				B9F63F73185899DA0084782C /* TP4___Arbres___Expression_arithmetique.1 */,
+				B9F63F7A18589A070084782C /* arbre.c */,
+				B9F63F7B18589A070084782C /* arbre.h */,
+				B9F63F7C18589A070084782C /* expression.c */,
+				B9F63F7D18589A070084782C /* expression.h */,
+				B9F63F7E18589A070084782C /* Fonctions arbres.hold */,
+				B9F63F7F18589A070084782C /* main_expression.cold */,
+				B9F63F8018589A070084782C /* Rapport.pdf */,
+				B9C684AF187F372B002AF0D1 /* main.c */,
+				B91A453418904BA00099F11A /* fonctions arbre.h */,
 			);
 			path = "TP4 - Arbres & Expression arithmetique";
 			sourceTree = "<group>";
@@ -117,7 +137,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9F63F72185899DA0084782C /* main.c in Sources */,
+				B9C684B0187F372B002AF0D1 /* main.c in Sources */,
+				B9F63F8418589A070084782C /* main_expression.cold in Sources */,
+				B9F63F8318589A070084782C /* Fonctions arbres.hold in Sources */,
+				B9F63F8118589A070084782C /* arbre.c in Sources */,
+				B9F63F8218589A070084782C /* expression.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +249,7 @@
 				B9F63F79185899DA0084782C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

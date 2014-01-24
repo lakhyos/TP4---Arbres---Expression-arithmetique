@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "arbre.h"
+#include "expression.h"
+
+int main()
+{
+  char *expression = "1+2*-3.5*5*6+1+2*3";
+  Afficher_arbre(Construire_arbre(expression), 0);
+  return 0;
+}

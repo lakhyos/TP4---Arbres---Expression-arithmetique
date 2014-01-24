@@ -1,0 +1,139 @@
+//
+//  File.c
+//  Project Test
+//
+//  Created by Med Ayoub on 24/11/2013.
+//  Copyright (c) 2013 Med Ayoub. All rights reserved.
+//
+
+//Declaration des bibliotheques
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//Structure d'un arbre
+
+struct Arbre{
+    int etiquette; //la valeur enregistree dans le noeud
+    struct Arbre *fils_g; //pointeur vers le fils gauche
+    struct Arbre *fils_d; //pointeur vers le fils droit
+    int cmpt; //compteur qui compte le nombre d'apparition d'etiquette dans l'arbre
+};
+
+typedef struct Arbre Arbre;
+
+//Fonction de creation d'un noeud
+
+Arbre *creer_noeud(int val)
+{
+    Arbre *noeud = malloc(sizeof(Arbre));
+    if(!noeud)
+    {
+        printf("erreur d'allocation memoire");
+        exit(1);
+    }
+    noeud->etiquette = val;
+    noeud->fils_d = NULL;
+    noeud->fils_g = NULL;
+    noeud->cmpt = 0;
+    return noeud;
+}
+
+//Les fonctions de parcours d'un arbre
+
+void prefixer(Arbre *arb)
+{
+    if(arb)
+    {
+        printf("%d",arb->etiquette);
+        prefixer(arb->fils_g);
+        prefixer(arb->fils_d);
+    }
+}
+
+void postfixer(Arbre *arb)
+{
+    if(arb)
+    {
+        postfixer(arb->fils_g);
+        postfixer(arb->fils_d);
+        printf("%d",arb->etiquette);
+    }
+}
+
+void infixer(Arbre *arb)
+{
+    if(arb)
+    {
+        infixer(arb->fils_g);
+        printf("%d",arb->etiquette);
+        infixer(arb->fils_d);
+    }
+    printf("end infixer\n");
+}
+
+//Fonction d'insertion ordonnee dans un arbre
+
+void ajout_ordonne_arbre(Arbre **arb,int val)
+{
+    if(!(*arb)) //si l'arbre est vide
+    {
+        *arb = creer_noeud(val) ; //on cree un noeud et on y met la valeur
+    }
+    if(val < (*arb)->etiquette) //si la valeur est inferieure a l'etiquette du noeud
+        ajout_ordonne_arbre(&(*arb)->fils_g,val); //on recommence la fonction pour le fils_g
+    else if(val > (*arb)->etiquette) //si la valeur est superieure a l'etiquette du noeud
+        ajout_ordonne_arbre(&(*arb)->fils_d,val);//on recommence la fonction pour le fils_d
+}
+
+//fonction de suppression
+
+void suppression_arbre(Arbre **arb, int val)
+{
+    Arbre *tmp1 = malloc(sizeof(Arbre));
+    if(!tmp1) printf("erreur d'allocation memoire");
+    Arbre *tmp2 = malloc(sizeof(Arbre));
+    if(!tmp2) printf("erreur d'allocation memoire");
+    if(val == (*arb)->etiquette) //si la valeur est egale a l'etiquette
+    {
+        if(!(*arb)->fils_g) (*arb)=(*arb)->fils_d; //si l'arbre n'a pas de fils_g on passe au fils droit
+        else if(!(*arb)->fils_d) (*arb)=(*arb)->fils_g; //si l'arbre n'a pas de fils_d on passe au fils gauche
+        else
+        {
+            if(!(*arb)->cmpt) //si la valeur n'apparet qu'une seule fois dans l'arbre
+            {
+                tmp2 = (*arb);
+                tmp1 = (*arb)->fils_g;
+                while(tmp1) //tant que l'arbre n'est pas nul
+                {
+                    tmp2=tmp1; //on enregistre la valeur de l'arbre
+                    tmp1=tmp1->fils_d; //on passe au fils_d
+                }
+                (*arb)->etiquette=tmp1->etiquette; //on remplace l'etiquette supprimee
+                tmp2->fils_d->etiquette=tmp1->fils_g->etiquette; //on relit le sous arbre gauche s'il existe
+            }
+            else tmp1->cmpt--; //si la valeur apparet plus d'une fois dans l'arbre, on decremente cmpt
+        }
+    }
+    else if (val < (*arb)->etiquette)  suppression_arbre(&(*arb)->fils_g,val);
+    else suppression_arbre(&(*arb)->fils_d,val);
+}
+
+//Fonction de remplissage
+
+void remplissage_ordonne(Arbre *arb)
+{
+    int val;
+    char reponse = 'o';
+    printf("Remplissage d'un arbre :\n");
+    while(reponse == 'o'){
+        printf("Donner une valeur :");
+        scanf("%d",&val);
+        getchar();
+        ajout_ordonne_arbre(&arb,val);
+        printf("Voullez-vous ajouter une autre valeur ? :");
+        scanf("%c",&reponse);
+    }
+}
+
+
